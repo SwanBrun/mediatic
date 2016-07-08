@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -24,19 +25,19 @@ public class AdherentController {
 		return adherentService.findById(id);
 	}
 	
-	@RequestMapping(value = "all", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public List<Adherent> findAll(){
 		return adherentService.findAll();
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void create(Adherent adherent){
+	public void create(@RequestBody Adherent adherent){
 		adherentService.save(adherent);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
-	public void upDate(Adherent adherent){
+	public void update(@RequestBody Adherent adherent){
 		adherentService.save(adherent);
 	}
 	

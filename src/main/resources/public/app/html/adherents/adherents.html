@@ -1,0 +1,35 @@
+<table id="tableAdherent" datatable="ng" dt-options="dtOptions" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de naissance</th>
+            <th>Cotisation à jour</th>
+            <th>Nombre de médias empruntés</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de naissance</th>
+            <th>Cotisation à jour</th>
+            <th>Nombre de médias empruntés</th>
+            <!--th></th-->
+        </tr>
+    </tfoot>
+    <tbody>
+
+        <tr ng-repeat="a in adherents">
+            <td ng-bind="a.id"></td>
+            <td ng-bind="a.nom"></td>
+            <td ng-bind="a.prenom"></td>
+            <td ng-bind="a.date_naissance | date: 'dd/MM/yyyy'"></td>
+            <td ng-bind="a.cotisation.fin | date: 'dd/MM/yyyy'"></td>
+            <td ng-bind="a.nombre_media"></td>
+        </tr>
+
+    </tbody>
+</table>

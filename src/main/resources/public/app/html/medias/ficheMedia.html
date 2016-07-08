@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1>
+                <i class="mdi mdi-book"></i>
+                Fiche Media</h1>
+            <br>
+            <!-- BEGIN DOWNLOAD PANEL -->
+            <div class="panel panel-default well">
+                <div class="panel-body">
+                    <form class="form-horizontal " name="ficheMediasForm" ng-submit="ajout()" id="ficheMediasForm" novalidate>
+                        <!-- Titre-->
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-pen"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="titre" placeholder="Titre" name="titre" ng-model="titre" required>
+                                </div>
+                                <p ng-show="ficheMediasForm.titre.$untouched" class="help-block">Le titre est requis</p>
+                            </div>
+                            <!-- Type de media -->
+                            <div class="col-sm-12">
+                                <select name="SelectMediaType" id="SelectMediaTypeId" class="form-control" required ng-options="item for item in listeMedia" ng-model="type"></select>
+                            </div>
+                            <p ng-show="ficheMediasForm.type.$untouched" class="help-block">Le type est requis</p>
+                            <div class="col-sm-12">
+                                <label for="auteur">Auteur</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-account"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="auteur" placeholder="Auteur" name="auteur" ng-model="auteur" required>
+                                </div>
+                                <p ng-show="ficheMediasForm.auteur.$untouched" class="help-block">L'auteur est obligatoire</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <button id="media-submit" type="submit" class="btn btn-default btn-info" ng-show="adminConnect()" ng-disabled="ficheMediasForm.$invalid">Enregistrer</button>
+
+                            </div>
+                            <input type="hidden" value="">
+                        </form>
+                    </div>
+                </div>
+                <!-- end panel-body -->
+            </div>
+            <!-- end panel -->
+            <!-- END DOWNLOAD PANEL -->
+        </div>
+        <!-- end col-md-8 -->
+
+    </div>
+</div>

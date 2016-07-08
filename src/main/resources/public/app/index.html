@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html ng-app="mediatic" lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Mediatic</title>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+        <!-- jQuery dataTables -->
+        <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+
+        <!-- Angular -->
+        <script src="bower_components/angular/angular.js"></script>
+        <!-- Angular Route-->
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <!-- Angular i18n-->
+        <script src="bower_components/angular-i18n/angular-locale_fr-fr.js"></script>
+        <!-- Angular date-picker -->
+        <script src="bower_components/angularjs-datepicker/dist/angular-datepicker.min.js"></script>
+        <link href="bower_components/angularjs-datepicker/dist/angular-datepicker.min.css" rel="stylesheet">
+
+        <!-- Angular dataTables -->
+        <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
+        <!-- Angular dataTables bootstrap-->
+        <script src="bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
+
+        <!-- Angular dataTables column filter->
+		<script src="bower_components/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js"></script-->
+
+        <link href="bower_components/angular-datatables/dist/css/angular-datatables.css" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+        <link href="bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css" rel="stylesheet">
+        <link href="bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet">
+        <!-- MDI ICON -->
+        <link href="bower_components/mdi/css/materialdesignicons.css" media="all" rel="stylesheet" type="text/css"/>
+
+        <link href="css/style.css" media="all" rel="stylesheet" type="text/css"/>
+
+        <script src="js/app.js"></script>
+        <script src="js/adherents/adherentsModule.js"></script>
+        <script src="js/adherents/AdherentsController.js"></script>
+        <script src="js/adherents/FicheAdherentController.js"></script>
+        <script src="js/adherents/FicheAdherentModController.js"></script>
+        <script src="js/adherents/adherentsService.js"></script>
+        <script src="js/adherents/ficheAdherentService.js"></script>
+        <script src="js/medias/mediasModule.js"></script>
+        <script src="js/medias/mediasService.js"></script>
+        <script src="js/medias/MediasController.js"></script>
+        <script src="js/login/loginModule.js"></script>
+        <script src="js/login/loginService.js"></script>
+        <script src="js/login/LoginController.js"></script>
+        <script src="js/medias/ficheMediaService.js"></script>
+        <script src="js/medias/FicheMediasController.js"></script>
+        <script src="js/login/testVueConnectedController.js"></script>
+    </head>
+    <body ng-controller="testVueConnectedController">
+        <nav class="navbar navbar-default" ng-show="adminConnect() || etudientConnect()">
+
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button ng-show="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+
+                    </button>
+                    <a ng-class="{active:isActive('login')}" class="navbar-brand" href="#/">
+                        <i class="mdi mdi-book-open-page-variant"></i>
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{active:isActive('medias')}">
+                            <a href="#/medias">Medias
+                            </a>
+                        </li>
+
+                        <li ng-class="{active:isActive('media')}">
+                            <a href="#/ficheMedias" ng-show="adminConnect()">Fiche Media</a>
+                        </li>
+                        <li ng-class="{active:isActive('adherents')}">
+                            <a href="#/adherents">Adhérents</a>
+                        </li>
+                        <li ng-class="{active:isActive('adherent')}">
+                            <a href="#/ficheAdherent" ng-show="adminConnect()">Fiche Adhérent</a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <form ng-controller="LoginController" class="login" ng-submit="deconnection()">
+
+                                <input type="submit" value="Deconnection" class="btn btn-success btn-sm"/>
+                            </form>
+
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <ng-view></ng-view>
+
+    </body>
+
+</html>

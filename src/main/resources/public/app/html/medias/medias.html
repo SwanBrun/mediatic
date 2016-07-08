@@ -1,0 +1,35 @@
+<table id="mediaTable" datatable="ng" datatable="ng" dt-options="dtOptions" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Type</th>
+            <th>Emprunteur</th>
+            <th>Date d'emprunt</th>
+
+        </tr>
+    </thead>
+    <tfoot>
+
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Type</th>
+            <th>Emprunteur</th>
+            <th>Date d'emprunt</th>
+        </tr>
+    </tfoot>
+    <tbody>
+
+        <tr ng-repeat="item in list">
+            <td ng-bind="item.id"></td>
+            <td ng-bind="item.titre"></td>
+            <td ng-bind="item.auteur"></td>
+            <td ng-bind="item.type"></td>
+            <td ng-bind="item.emprunteur.nom +' '+ item.emprunteur.prenom"></td>
+            <td ng-bind="item.emprunteurs[0].depart| date: 'dd MMMM yyyy'"></td>
+        </tr>
+    </tbody>
+</table>

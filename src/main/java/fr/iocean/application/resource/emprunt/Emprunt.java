@@ -1,9 +1,9 @@
-package fr.iocean.application.model.emprunt;
+package fr.iocean.application.resource.emprunt;
 
 import java.util.Date;
 
-import fr.iocean.application.model.adherent.Adherent;
-import fr.iocean.application.model.media.Media;
+import fr.iocean.application.resource.adherent.Adherent;
+import fr.iocean.application.resource.media.Media;
 
 public class Emprunt {
 	private Adherent adherent;

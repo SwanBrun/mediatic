@@ -1,4 +1,4 @@
-package fr.iocean.application.model.adherent;
+package fr.iocean.application.resource.adherent;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class AdherentController {
 	@Autowired
 	private AdherentService adherentService;
 	
-	@RequestMapping(value = "{id}", method = RequestMethod.GET)
+	@RequestMapping(value="{id}", method = RequestMethod.GET)
 	public Adherent findById(@PathVariable Long id){
 		return adherentService.findById(id);
 	}

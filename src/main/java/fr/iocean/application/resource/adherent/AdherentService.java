@@ -1,4 +1,4 @@
-package fr.iocean.application.model.adherent;
+package fr.iocean.application.resource.adherent;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class AdherentService {
 	private AdherentRepository adherentRepository;
 	
 	public Adherent findById(Long id){
-		return adherentRepository.getOne(id);
+		return adherentRepository.findOne(id);
 	}
 	
 	public List<Adherent> findAll(){

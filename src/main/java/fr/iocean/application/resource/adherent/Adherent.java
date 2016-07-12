@@ -1,4 +1,4 @@
-package fr.iocean.application.model.adherent;
+package fr.iocean.application.resource.adherent;
 
 import java.math.BigDecimal;
 import java.util.Date;

@@ -10,7 +10,7 @@ angular
         $scope.adherents = param;
     });*/
     
-    var myUrl = 'http://192.168.10.12:8090/resource/adherent.recherche';
+    var myUrl = 'http://localhost:8080/resource/adherent';
     $http.get(myUrl).then(function(response) {
         $scope.adherents = response.data;
     }, function(response) {

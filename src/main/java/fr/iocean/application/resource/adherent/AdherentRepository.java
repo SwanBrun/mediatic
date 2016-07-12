@@ -1,4 +1,4 @@
-package fr.iocean.application.model.adherent;
+package fr.iocean.application.resource.adherent;
 
 import java.util.List;
 

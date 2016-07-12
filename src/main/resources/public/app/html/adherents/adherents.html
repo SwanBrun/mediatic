@@ -24,8 +24,8 @@
 
         <tr ng-repeat="a in adherents">
             <td ng-bind="a.id"></td>
-            <td ng-bind="a.nom"></td>
-            <td ng-bind="a.prenom"></td>
+            <td ng-bind="a.lastName"></td>
+            <td ng-bind="a.firstName"></td>
             <td ng-bind="a.date_naissance | date: 'dd/MM/yyyy'"></td>
             <td ng-bind="a.cotisation.fin | date: 'dd/MM/yyyy'"></td>
             <td ng-bind="a.nombre_media"></td>

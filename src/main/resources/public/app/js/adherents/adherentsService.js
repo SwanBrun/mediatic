@@ -3,7 +3,7 @@ angular
     .factory('adherentsService', function($http) {
         adherentsService = {};
 
-        var myUrl = 'http://192.168.10.12:8090/resource/adherent.recherche';
+        var myUrl = 'http://localhost:8080/resource/adherent';
         var promise = $http.get(myUrl).then(function(response) {
             console.log(response.data);
             //then sera une promesse dont le retour sera le resultat de ce qui est à l'intérieur

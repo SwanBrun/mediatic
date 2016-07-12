@@ -2,6 +2,8 @@ local.properties
 local.yml
 application-dev.yml
 application-dev.*
+bower_component
+node_modules
 .springBeans
 
 #env/ide

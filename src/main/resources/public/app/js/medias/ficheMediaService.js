@@ -3,7 +3,7 @@ angular
     .factory('ficheMediaService', function($http) {
         var ficheMediaService = {};
 
-        var myUrl = 'http://192.168.10.12:8090/resource/media.accession/?id=';
+        var myUrl = 'http://localhost:8080/resource/media/';
 
 
         console.log('test fiche media service');

@@ -14,7 +14,7 @@ public class MediaService {
 	private MediaRepository mediaRepository;
 
 	public Media findById(Long id) {
-		return mediaRepository.getOne(id);
+		return mediaRepository.findOne(id);
 	}
 
 	public List<Media> findAll() {

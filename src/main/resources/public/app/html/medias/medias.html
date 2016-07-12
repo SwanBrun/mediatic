@@ -1,4 +1,4 @@
-<table id="mediaTable" datatable="ng" datatable="ng" dt-options="dtOptions" class="display" cellspacing="0" width="100%">
+<table id="mediaTable" datatable="ng" dt-options="dtOptions" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
             <th>ID</th>
@@ -25,8 +25,8 @@
 
         <tr ng-repeat="item in list">
             <td ng-bind="item.id"></td>
-            <td ng-bind="item.titre"></td>
-            <td ng-bind="item.auteur"></td>
+            <td ng-bind="item.title"></td>
+            <td ng-bind="item.author"></td>
             <td ng-bind="item.type"></td>
             <td ng-bind="item.emprunteur.nom +' '+ item.emprunteur.prenom"></td>
             <td ng-bind="item.emprunteurs[0].depart| date: 'dd MMMM yyyy'"></td>

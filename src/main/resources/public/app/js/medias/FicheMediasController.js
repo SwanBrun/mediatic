@@ -6,11 +6,10 @@ angular
 
         $scope.mediasModule = [];
         $scope.listeMedia = ["CD", "Livre", "DVD"];
+        $scope.media = {};
 
-        ficheMediaService.getMedia(id).then(function(param) {
-            $scope.auteur = param.auteur;
-            $scope.titre = param.titre;
-            $scope.type = param.type;
+        ficheMediaService.getMedia(id).then(function(data) {
+            $scope.media = data;
         });
 
     });

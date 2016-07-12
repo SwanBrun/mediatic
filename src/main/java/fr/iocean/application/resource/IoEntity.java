@@ -1,5 +1,5 @@
-package fr.iocean.application.model;
+package fr.iocean.application.resource;
 
-public class IoEntity {
+public interface IoEntity {
 
 }

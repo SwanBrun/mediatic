@@ -6,6 +6,7 @@
                 <h4>Connexion
                     <i class="mdi mdi-login-variant"></i>
                 </h4>
+                <p ng-if="{!globals.isConnected}"> test </p>
                 <form class="login" ng-submit="connection()">
                     <input type="text" id="login" class="form-control input-sm chat-input" ng-model="login" placeholder="Nom d'utilisateur"/>
                 </br>

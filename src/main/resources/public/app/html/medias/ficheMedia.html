@@ -17,13 +17,13 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-pen"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="titre" placeholder="Titre" name="titre" ng-model="titre" required>
+                                    <input type="text" class="form-control" id="titre" placeholder="Titre" name="titre" ng-model="media.title" required>
                                 </div>
                                 <p ng-show="ficheMediasForm.titre.$untouched" class="help-block">Le titre est requis</p>
                             </div>
                             <!-- Type de media -->
                             <div class="col-sm-12">
-                                <select name="SelectMediaType" id="SelectMediaTypeId" class="form-control" required ng-options="item for item in listeMedia" ng-model="type"></select>
+                                <select name="SelectMediaType" id="SelectMediaTypeId" class="form-control" required ng-options="item for item in listeMedia" ng-model="media.type"></select>
                             </div>
                             <p ng-show="ficheMediasForm.type.$untouched" class="help-block">Le type est requis</p>
                             <div class="col-sm-12">
@@ -32,7 +32,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-account"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="auteur" placeholder="Auteur" name="auteur" ng-model="auteur" required>
+                                    <input type="text" class="form-control" id="auteur" placeholder="Auteur" name="auteur" ng-model="media.author" required>
                                 </div>
                                 <p ng-show="ficheMediasForm.auteur.$untouched" class="help-block">L'auteur est obligatoire</p>
                             </div>

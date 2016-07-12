@@ -7,7 +7,7 @@ angular
 
         $scope.listeMedia = ["CD", "Livre", "DVD"];
 
-        var myUrl = 'http://192.168.10.12:8090/resource/media.recherche';
+        var myUrl = 'http://localhost:8080/resource/media/';
         $http.get(myUrl).then(function(response) {
             $scope.list = response.data;
         }, function(response) {
@@ -45,11 +45,11 @@ angular
 
             console.log("test fiche medias", $scope.type);
 
-            var UrlCreation = 'http://192.168.10.12:8090/resource/media.creation';
+            var UrlCreation = 'http://localhost:8080/resource/media/';
             $http.post(UrlCreation, {
-                titre: $scope.titre,
+                titre: $scope.title,
                 type: $scope.type,
-                auteur: $scope.auteur
+                auteur: $scope.author
             }).then(function(response) {
 
                 console.log("OK fiche media creation!!!!!");

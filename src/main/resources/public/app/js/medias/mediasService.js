@@ -6,7 +6,7 @@ angular
 
 
 
-        var myUrl = 'http://192.168.10.12:8090/resource/media.recherche';
+        var myUrl = 'http://localhost:8080/resource/media/';
 
 
         var promise = $http.get(myUrl).then(function(response) {

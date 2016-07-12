@@ -39,7 +39,7 @@ angular
             var UrlCreation = 'http://192.168.10.12:8090/resource/adherent.creation';
             console.log($scope.adherent);
             $http.post(UrlCreation, {
-                nom: $scope.adherent.nom,
+                nom: $scope.adherent.lastName,
                 prenom: $scope.adherent.prenom,
                 date_naissance: dateNaissance,
                 email: $scope.adherent.email,

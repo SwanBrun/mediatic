@@ -41,8 +41,8 @@ public class AdherentController {
 		adherentService.save(adherent);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT)
-	public void update(@RequestBody Adherent adherent){
+	@RequestMapping(value="{id}", method = RequestMethod.PUT)
+	public void update(@PathVariable Long id, @RequestBody Adherent adherent){
 		adherentService.save(adherent);
 	}
 	

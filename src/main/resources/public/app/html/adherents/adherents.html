@@ -3,20 +3,20 @@
         <tr>
             <th>ID</th>
             <th>Nom</th>
-            <th>PrÃ©nom</th>
+            <th>Prénom</th>
             <th>Date de naissance</th>
-            <th>Cotisation Ã  jour</th>
-            <th>Nombre de mÃ©dias empruntÃ©s</th>
+            <th>Cotisation à  jour</th>
+            <th>Nombre de médias empruntés</th>
         </tr>
     </thead>
     <tfoot>
         <tr>
             <th>ID</th>
             <th>Nom</th>
-            <th>PrÃ©nom</th>
+            <th>Prénom</th>
             <th>Date de naissance</th>
-            <th>Cotisation Ã  jour</th>
-            <th>Nombre de mÃ©dias empruntÃ©s</th>
+            <th>Cotisation à  jour</th>
+            <th>Nombre de médias empruntés</th>
             <!--th></th-->
         </tr>
     </tfoot>
@@ -26,8 +26,8 @@
             <td ng-bind="a.id"></td>
             <td ng-bind="a.lastName"></td>
             <td ng-bind="a.firstName"></td>
-            <td ng-bind="a.date_naissance | date: 'dd/MM/yyyy'"></td>
-            <td ng-bind="a.cotisation.fin | date: 'dd/MM/yyyy'"></td>
+            <td ng-bind="a.birthDate | date: 'dd/MM/yyyy'"></td>
+            <td ng-bind="a.cotisation | date: 'dd/MM/yyyy'"></td>
             <td ng-bind="a.nombre_media"></td>
         </tr>
 

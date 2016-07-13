@@ -3,35 +3,50 @@ package fr.iocean.application.resource.adherent;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table
 public class Adherent {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
 	
+	@Column(name = "firstName")
 	private String firstName;
 	
+	@Column(name = "lastName")
 	private String lastName;
 	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "birthDate")
 	private Date birthDate;
 	
+	@Column(name = "eMail")
 	private String eMail;
 	
+	@Column(name = "address")
 	private String address;
 	
+	@Column(name = "postCode")
 	private String postCode;
 	
+	@Column(name = "city")
 	private String city;
 	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "cotisation")
 	private Date cotisation;
 	
+	@Column(name = "amountCotisation")
 	private BigDecimal amountCotisation; 
 
 	public Long getId() {

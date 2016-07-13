@@ -45,7 +45,7 @@ public class MediaController {
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
-	public void update(Media media) {
+	public void update(@RequestBody Media media) {
 
 		mediaService.save(media);
 

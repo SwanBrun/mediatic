@@ -3,7 +3,7 @@ angular
 	.controller('AdherentsController', function($scope, $window, $http, $rootScope, adherentsService, DTOptionsBuilder) {
 
     $rootScope.pageActive = "adherents";
-    $scope.adherents = [];
+    $scope.adherents = {};
 
     //Nous n'utilisons pas le service, sinon le tableau ne charge pas les ajouts et modifications.
    /* adherentsService.getAdherents().then(function(param) {

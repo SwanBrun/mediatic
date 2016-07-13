@@ -39,7 +39,8 @@ angular
 
 
         $scope.mediasModule = [];
-        $scope.listeMedia = ["CD", "Livre", "DVD"];
+       
+        $scope.media = {};
 
         $scope.ajout = function() {
 
@@ -47,9 +48,9 @@ angular
 
             var UrlCreation = 'http://localhost:8080/resource/media/';
             $http.post(UrlCreation, {
-                titre: $scope.title,
-                type: $scope.type,
-                auteur: $scope.author
+                title: $scope.media.title,
+                type: $scope.media.type,
+                author: $scope.media.author
             }).then(function(response) {
 
                 console.log("OK fiche media creation!!!!!");

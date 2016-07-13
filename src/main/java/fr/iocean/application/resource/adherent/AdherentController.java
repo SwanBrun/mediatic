@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.iocean.application.exception.EntityNotFoundException;
+
 @Transactional
 @RestController
 @RequestMapping("/resource/adherent")
@@ -21,7 +23,10 @@ public class AdherentController {
 	private AdherentService adherentService;
 	
 	@RequestMapping(value="{id}", method = RequestMethod.GET)
-	public Adherent findById(@PathVariable Long id){
+	public Adherent findById(@PathVariable Long id) {
+		if (adherentService.findById(id) == null) {
+			throw new EntityNotFoundException();
+		}
 		return adherentService.findById(id);
 	}
 	

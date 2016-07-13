@@ -43,6 +43,9 @@ public class AdherentController {
 	
 	@RequestMapping(value="{id}", method = RequestMethod.PUT)
 	public void update(@PathVariable Long id, @RequestBody Adherent adherent){
+		if (adherentService.findById(id) == null) {
+			throw new EntityNotFoundException();
+		}
 		adherentService.save(adherent);
 	}
 	

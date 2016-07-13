@@ -29,7 +29,8 @@ public class AdherentServiceTest extends IntegrationTest {
 	@WithMockUser
 	@Test
 	public void testFindOneAdherentByLoginOK() throws Exception {
-		this.mockMvc.perform(get("/resource/adherent/{id}", 1)).andExpect(jsonPath("$.address").value("adresse1"))
+		this.mockMvc.perform(get("/resource/adherent/{id}", 1))
+		.andExpect(jsonPath("$.address").value("adresse1"))
 				.andExpect(jsonPath("$.eMail").value("mail@mail.fr")).andExpect(status().isOk());
 	}
 
@@ -68,4 +69,17 @@ public class AdherentServiceTest extends IntegrationTest {
 				.content(jsonHelper.serialize(adherent)))
 				.andDo(MockMvcResultHandlers.print()).andExpect(status().is(201));
 	}
+	
+	@WithMockUser
+	@Test
+	public void testDeleteOK() throws Exception {
+		Adherent adherent = new Adherent();
+		adherent.setBirthDate(null);
+		adherent.setAddress(null);
+		this.mockMvc
+				.perform(post("/resource/users").contentType(MediaType.APPLICATION_JSON)
+						.content(jsonHelper.serialize(adherent)))
+				.andDo(MockMvcResultHandlers.print()).andExpect(status().is4xxClientError());
+	}
+	
 }

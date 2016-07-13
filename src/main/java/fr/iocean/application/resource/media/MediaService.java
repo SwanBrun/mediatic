@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class MediaService {
 
@@ -19,7 +17,7 @@ public class MediaService {
 
 	public List<Media> findAll() {
 		return mediaRepository.findAll();
-	}
+	};
 
 	public void delete(Long id) {
 		mediaRepository.delete(id);
@@ -29,6 +27,10 @@ public class MediaService {
 
 		mediaRepository.save(media);
 
+	}
+
+	public List<Media> search(String search) {
+		return mediaRepository.search(search);
 	}
 
 }

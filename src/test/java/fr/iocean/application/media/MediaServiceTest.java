@@ -33,6 +33,16 @@ public class MediaServiceTest extends IntegrationTest {
 		.andExpect(jsonPath("$.type").value("Livre"))
 		.andExpect(status().isOk());
 	}
+	
+	@WithMockUser
+	@Test
+	public void testSearch() throws Exception {
+		this.mockMvc.perform(get("/resource/media").param("search", "author1"))
+		.andExpect(jsonPath("$[0].title").value("title1"))
+		.andExpect(jsonPath("$[0].type").value("Livre"))
+		.andExpect(status().isOk());
+	}
+	
 //
 //	@WithMockUser
 //	@Test

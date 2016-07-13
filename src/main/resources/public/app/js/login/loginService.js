@@ -15,7 +15,7 @@ angular.module('loginModule').factory('loginService',
 					},
 				}
 				$http.get(myUrl, config).then(function(response) {
-
+					//TODO : if utile ou pas?
 					if (response.status === 200) {
 						 $rootScope.globals = {
 								 	authorities : response.data,

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,10 +45,17 @@ public class MediaController {
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
-	public void update(Media media) {
+	public void update(@RequestBody Media media) {
 
 		mediaService.save(media);
 
 	}
 
+	
+	@RequestMapping(method = RequestMethod.GET, params = "search")
+	public List<Media> search(@RequestParam(required = true) String search ) {
+		return mediaService.search(search);
+	}
+
+	
 }

@@ -4,7 +4,7 @@ angular
         'FicheAdherentModController',
         function($scope, $routeParams, $http, $rootScope, ficheAdherentService) {
             $rootScope.pageActive = "adherent";
-            $scope.adherent = [];
+            $scope.adherent = {};
             $scope.adherent.cotisation = [];
 
             var id = $routeParams.ref;
@@ -12,9 +12,9 @@ angular
             //récuperation de l'adherant via son id
             ficheAdherentService.getAdherent(id).then(function(param) {
                 $scope.adherent = param;
-                $scope.adherent.date_naissance = afficheDate($scope.adherent.date_naissance);
-                $scope.adherent.cotisation.debut = afficheDate($scope.adherent.cotisation.debut);
-                $scope.adherent.cotisation.fin = afficheDate($scope.adherent.cotisation.fin);
+//                $scope.adherent.birthDate = afficheDate($scope.adherent.birthDate);
+//                $scope.adherent.cotisation = afficheDate($scope.adherent.cotisation);
+//                $scope.adherent.cotisationFin = afficheDate($scope.adherent.cotisationFin);
             });
 
             //restructuration des dates pour le datepicker (2016-06-22T00:00:00.000Z -> 2016/06/22)
@@ -29,7 +29,7 @@ angular
 
             //opération de calcul d'age de l'adherant
             $scope.calculAge = function() {
-                var dateNaiss = $scope.adherent.date_naissance;
+                var dateNaiss = $scope.adherent.birthDate;
                 if (dateNaiss !== undefined) {
                     dateNaiss = dateNaiss.split("/");
                     var dateNaissFormat = new Date(dateNaiss[1] + ' ' +
@@ -44,8 +44,8 @@ angular
             }
 
             //opération de calcul de la date de fin de cotisation
-            $scope.finCotisation = function() {
-                var dateDeb = $scope.adherent.cotisation.debut;
+            $scope.adherent.finCotisation = function() {
+                var dateDeb = $scope.adherent.cotisation;
                 if (dateDeb !== undefined) {
                     dateDeb = dateDeb.split("/");
                     var dateDebFormat = new Date(dateDeb[1] + ' ' +
@@ -53,43 +53,22 @@ angular
                     var dateFinAbonnement = new Date(
                         dateDebFormat.setFullYear(dateDebFormat
                             .getFullYear() + 1));
-                    $scope.adherent.cotisation.fin = dateFinAbonnement
+                    $scope.adherent.cotisation.cotisationFin = dateFinAbonnement
                         .toLocaleDateString();
 
                 }
             }
 
             $scope.ajout = function() {
-                var dateNaissance = $scope.adherent.date_naissance;
+                var dateNaissance = $scope.adherent.birthDate;
                 if (dateNaissance !== undefined) {
                     dateNaissance = dateNaissance.split("/");
                     dateNaissance = new Date(dateNaissance[1] + ' ' +
                         dateNaissance[0] + ' ' + dateNaissance[2]);
                 }
-                var UrlCreation = 'http://192.168.10.12:8090/resource/adherent.modification';
+                var UrlCreation = 'http://localhost:8080/resource/adherent/' + $scope.adherent.id;
                 console.log($scope.adherent);
-                $http
-                    .post(
-                        UrlCreation, {
-                            id: id,
-                            nom: $scope.adherent.nom,
-                            prenom: $scope.adherent.prenom,
-                            date_naissance: dateNaissance,
-                            email: $scope.adherent.email,
-                            adresse: {
-                                ligne1: $scope.adherent.adresse.ligne1,
-                                ligne2: '',
-                                codepostal: $scope.adherent.adresse.codepostal,
-                                ville: $scope.adherent.adresse.ville
-                            },
-                            cotisation: {
-                                debut: $scope.adherent.cotisation.debut,
-                                fin: $scope.adherent.cotisation.fin,
-                                montant: $scope.adherent.cotisation.montant
-                            }
-                        })
-                    .then(
-                        function(response) {
+                $http.put(UrlCreation, $scope.adherent).then(function(response) {
 
                             console.log("OK fiche adherant  modificationS!!!!!");
                             console.log(response.data);
@@ -101,7 +80,7 @@ angular
                                 'Erreur de connexion lors de la création d\'un media',
                                 response);
                             // $http.defaults.headers.common.authorization
-                            // = 'Basic ';
+                            $http.defaults.headers.common.authorization = 'Basic ';
                         });
             }
 

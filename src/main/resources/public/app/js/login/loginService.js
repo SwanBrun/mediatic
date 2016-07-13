@@ -15,34 +15,31 @@ angular.module('loginModule').factory('loginService',
 					},
 				}
 				$http.get(myUrl, config).then(function(response) {
-
+					//TODO : if utile ou pas?
 					if (response.status === 200) {
 						 $rootScope.globals = {
-					                connected : true,
-					                login : login
+					                isConnected : true,
+					                login : login,
+					                
 					            };
-						//connected = true; // variable global
 						$http.defaults.headers.common['Authorization'] = token;
+						console.log(response.data);
 						// response.data => droits du gars a stocker
 						$cookieStore.put('token', token);
 						console.log('User Authenticated');
-					} else {
-						badRequest = true;
-						console.log('Access Denied');
-						// set un message affiché dans la vue du style mauvaise
-						// identifiants
+						document.location.href = " #/medias";
 					}
-
-					document.location.href = " #/medias";
 
 				}, function(response) {
 					$http.defaults.headers.common['Authorization'] = 'Basic ';
-					console.log("Connexion Problem");
+					$rootScope.globals = {
+			                isConnected : false
+					}
+					console.log('Access Denied');
 				});
 			};
 
 			loginService.deconnection = function() {
-				token = '';
 				$cookieStore.remove('token');
 				$http.defaults.headers.common['Authorization'] = 'Basic ';
 				document.location.href = " #/login";

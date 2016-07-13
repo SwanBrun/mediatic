@@ -1,32 +1,20 @@
 <div class="container cadreLogin">
-    <div class="row">
+	<div class="row">
 
-        <div class="col-md-offset-5 col-md-3">
-            <div class="form-login">
-                <h4>Connexion
-                    <i class="mdi mdi-login-variant"></i>
-                </h4>
-                <p ng-if="{!globals.isConnected}"> test </p>
-                <form class="login" ng-submit="connection()">
-                    <input type="text" id="login" class="form-control input-sm chat-input" ng-model="login" placeholder="Nom d'utilisateur"/>
-                </br>
-                <input type="password" id="pass" class="form-control input-sm chat-input" ng-model="pass" placeholder="Mot de passe"/>
-            </br>
-            <input type="submit" value="Se connecter" class="btn btn-primary btn-md"/>
-        </form>
-
-        <!-- <div class="col-md-12">
-
-            <div class="wrap">
-                <p class="form-title">
-                    Sign In</p>
-                <form class="login" ng-submit="connection()">
-	                <input type="text" placeholder="Username" ng-model="login" id="login"/>
-	                <input type="password" placeholder="Password" ng-model="pass" id="pass"/>
-                	<input type="submit" value="Sign In"  class="btn btn-success btn-sm" /> -->
-
-    </div>
-
-</div>
-</div>
+		<div class="col-md-offset-5 col-md-3">
+			<div class="form-login">
+				<h4>
+					Connexion <i class="mdi mdi-login-variant"></i>
+				</h4>
+				<form class="login" ng-submit="connection()">
+					<input type="text" id="login"
+						class="form-control input-sm chat-input" ng-model="login"
+						placeholder="Nom d'utilisateur" /> </br> <input type="password"
+						id="pass" class="form-control input-sm chat-input" ng-model="pass"
+						placeholder="Mot de passe" /> </br> <input type="submit"
+						value="Se connecter" class="btn btn-primary btn-md" />
+				</form>
+			</div>
+		</div>
+	</div>
 </div>

@@ -23,6 +23,7 @@ angular.module('loginModule').factory('loginService',
 					                
 					            };
 						$http.defaults.headers.common['Authorization'] = token;
+						console.log(response.data);
 						// response.data => droits du gars a stocker
 						$cookieStore.put('token', token);
 						console.log('User Authenticated');
